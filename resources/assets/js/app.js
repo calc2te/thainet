@@ -17,6 +17,95 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
+Vue.component('modal', {
+    template: '#modal-template',
+    props: ['show'],
+    data: function() {
+        return {
+            email: '',
+            password: '',
+            password2: ''
+        };
+    },
+    methods: {
+        close: function () {
+            this.$emit('close');
+        }
+    },
+    mounted: function() {
+        document.addEventListener("keydown", (e) => {
+            if (this.show && e.keyCode == 27) {
+                this.close();
+            }
+        });
+    }
+});
+
+Vue.component('NewRegisterModal', {
+    template: '#new-register-modal-template',
+    props: ['show'],
+    data: function() {
+        return {
+            email: '',
+            password: '',
+            password2: ''
+        };
+    },
+    methods: {
+        savePost: function () {
+            // Some save logic goes here...
+
+            //this.$emit('close');
+            axios.post('/users/register', {
+                    email: this.email,
+                    password: this.password
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        },
+        close: function () {
+            this.$emit('close');
+            this.email = '',
+            this.password = '',
+            this.password2 = ''
+        }
+    }
+});
+
+Vue.component('NewLoginModal', {
+    template: '#new-login-modal-template',
+    props: ['show'],
+    data: function() {
+        return {
+            email: '',
+            password: ''
+        };
+    },
+    methods: {
+        savePost: function () {
+            // Some save logic goes here...
+
+            this.$emit('close');
+        },
+        close: function () {
+            this.$emit('close');
+            this.email = '',
+            this.password = ''
+        }
+    }
+});
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        showRegisterModal: false,
+        showLoginModal: false
+    },
+    methods: {
+
+    }
 });

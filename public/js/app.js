@@ -996,8 +996,9 @@ module.exports = __webpack_require__(43);
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -1017,8 +1018,92 @@ window.Vue = __webpack_require__(37);
 
 Vue.component('example-component', __webpack_require__(40));
 
+Vue.component('modal', {
+    template: '#modal-template',
+    props: ['show'],
+    data: function data() {
+        return {
+            email: '',
+            password: '',
+            password2: ''
+        };
+    },
+    methods: {
+        close: function close() {
+            this.$emit('close');
+        }
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        document.addEventListener("keydown", function (e) {
+            if (_this.show && e.keyCode == 27) {
+                _this.close();
+            }
+        });
+    }
+});
+
+Vue.component('NewRegisterModal', {
+    template: '#new-register-modal-template',
+    props: ['show'],
+    data: function data() {
+        return {
+            email: '',
+            password: '',
+            password2: ''
+        };
+    },
+    methods: {
+        savePost: function savePost() {
+            // Some save logic goes here...
+
+            //this.$emit('close');
+            axios.post('/users/register', {
+                email: this.email,
+                password: this.password
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
+        close: function close() {
+            this.$emit('close');
+            this.email = '', this.password = '', this.password2 = '';
+        }
+    }
+});
+
+Vue.component('NewLoginModal', {
+    template: '#new-login-modal-template',
+    props: ['show'],
+    data: function data() {
+        return {
+            email: '',
+            password: ''
+        };
+    },
+    methods: {
+        savePost: function savePost() {
+            // Some save logic goes here...
+
+            this.$emit('close');
+        },
+        close: function close() {
+            this.$emit('close');
+            this.email = '', this.password = '';
+        }
+    }
+});
+
 var app = new Vue({
-  el: '#app'
+    el: '#app',
+    data: {
+        showRegisterModal: false,
+        showLoginModal: false
+    },
+    methods: {}
 });
 
 /***/ }),

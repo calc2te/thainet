@@ -4,61 +4,9 @@
 @endsection
 
 @section('content')
-    <style>
-        .header-top {height:38px;background-color:#fefefe;}
-        .header-top menu {float:right;}
-        .header-top li {float:left;position:relative;height:26px;font-size:13px;padding-top:12px;padding-right:18px;}
-
-        .header {display:flex;justify-content:center;height:80px;}
-        .header li {float:left;padding:0 40px;font-size:20px;line-height:80px;}
-    </style>
-
-    <header>
-        <div class="header-top">
-            <menu>
-            	<li><a href="#;">로그인</a></li>
-            	<li><a href="#;">회원가입</a></li>
-                <li><a href="#;">고객센터</a></li>
-            </menu>
-        </div>
-
-        <div class="header top-border bottom-border">
-                <li>LOGO</li>
-                <li><a href="#menu1">Menu 1</a></li>
-                <li><a href="#menu2">Menu 2</a></li>
-                <li><a href="#menu3">Menu 3</a></li>
-                <li><a href="#menu4">Menu 4</a></li>
-        </div>
-    </header>
-
-    <style>
-    .parallax-window {
-        min-height: 400px;
-        background: transparent;
-    }
-    .parallax-title {color:#fff;line-height:400px;font-size:64px;font-weight:600;text-align:center;letter-spacing:10px;}
-    </style>
-
     <div class="parallax-window" data-parallax="scroll" data-image-src="{{ asset('images/banner/banner1.png') }}">
         <div class="parallax-title">서울 서울타이</div>
     </div>
-
-    <style>
-        .star img {width:16px;}
-
-        .detail-image {text-align:center;}
-        .detail-image img {margin:0 auto;}
-        .detail-title {margin:20px auto;font-size:24px;font-weight:600;text-align:center;}
-        .detail-review-box {padding:10px;}
-        .detail-review-box > .msg {float:left;width:calc(100% - 150px);}
-        .detail-review-box > .star {float:left;width:150px;text-align:center;}
-
-        .customoverlay {position:relative;left:6px;bottom:75px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
-        .customoverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
-        .customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #007bff;background: #007bff url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
-        .customoverlay .title {display:block;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:14px;font-weight:bold;}
-        .customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-    </style>
 
     <div class="container">
         <div class="divide"></div>
