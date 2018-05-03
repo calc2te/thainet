@@ -14,20 +14,23 @@
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.1",
     "gulp": "^3.9.1",
+    "html-loader": "^0.5.5",
     "jquery": "^3.2",
     "laravel-mix": "^2.0",
-    "less": "^3.0.0",
-    "less-loader": "^4.0.5",
+    "less": "^3.0.1",
+    "less-loader": "^4.1.0",
     "lodash": "^4.17.4",
     "vue": "^2.5.7",
     "vue-axios": "^2.0.2",
     "vue-loader": "^14.0.3",
+    "vue-masonry-css": "^1.0.1",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.13",
     "yarn": "*"
   },
   "dependencies": {
     "bxslider": "^4.2.13",
-    "vue-flickity": "^1.0.9"
+    "vue-flickity": "^1.0.9",
+    "vue-masonry": "^0.11.1"
   }
 }

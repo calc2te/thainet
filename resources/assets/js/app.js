@@ -8,6 +8,11 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+// window.VueMasonryPlugin = require('vue-masonry');
+window.VueMasonry = require('vue-masonry-css');
+
+// Vue.use(VueMasonryPlugin);
+// Vue.use(VueMasonry);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -16,6 +21,12 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('image-upload',require('./components/ImageUpload.vue'));
+Vue.component('store-add-form', require('./components/StoreAdd.vue'));
+
+// Vue.component('review-component', require('./components/ReviewComponent'));
+// Vue.component('masonry', require('vue-masonry-css');))
+Vue.component('review-component2', require('./components/ReviewComponent2'));
 
 Vue.component('modal', {
     template: '#modal-template',
@@ -101,11 +112,18 @@ Vue.component('NewLoginModal', {
 
 const app = new Vue({
     el: '#app',
+
     data: {
         showRegisterModal: false,
-        showLoginModal: false
+        showLoginModal: false,
+
     },
     methods: {
-
+        location: function(location) {
+            if (location === "전체") {
+                location = '';
+            }
+            window.location.href = '/list/location/' + location
+        }
     }
 });

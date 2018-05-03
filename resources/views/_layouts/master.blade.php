@@ -3,6 +3,9 @@
 <head>
     <title>Thainet</title>
 
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <link href="/css/app.css" rel="stylesheet" type="text/css" >
@@ -13,7 +16,7 @@
         /* common */
         .small-msg {padding-left:4px;color:gray;font-size:14px;}
 
-        .btn {padding:8px 14px;background-color:#007bff;color:#fff;}
+        .btn {padding:8px 14px;background-color:#fff;color:#0056b3;border:1px solid #0056b3;}
 
         /* header */
         .header-top {height:38px;background-color:#fefefe;}
@@ -21,7 +24,7 @@
         .header-top li {float:left;position:relative;height:26px;font-size:13px;padding-top:12px;padding-right:18px;}
 
         .header {display:flex;justify-content:center;height:80px;}
-        .header li {float:left;padding:0 40px;font-size:20px;line-height:80px;}
+        .header li {float:left;padding:0 40px;font-size:22px;line-height:80px;}
 
         /* slider */
         .bx-wrapper {border:none; box-shadow: none;margin-bottom: 0px;}
@@ -30,7 +33,7 @@
         .slider img {visibility:hidden;}
 
         /* landing */
-        .container {margin:0 auto;width:1080px}
+        .container {margin:0 auto;padding-top:20px;width:1080px}
 
         .banner .banner-title {padding:14px 0;color:#333;font-size:24px;font-weight:bold;}
         .banner .banner-title-big {font-size:36px;}
@@ -40,9 +43,16 @@
         .banner-2 > div.box:nth-child(1) {margin-right:30px;}
         .banner-2 img {width:100%;}
 
-        .banner-4 .list > div.box {float:left;width:calc(25% - 6px);margin-right:8px;margin-bottom:20px;border:1px solid #ededed;}
+        .banner-4 .list > div.box {
+            float: left;
+            width: calc(25% - 6px);
+            margin-right: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ededed;
+            box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+        }
         .banner-4 .list > div.box:nth-child(4n) {margin-right:0px;}
-        .banner-4 img {width:100%;}
+        .banner-4 img {width:100%;height:160px;}
         .banner .list > div.box > div {padding:10px;}
 
         /* modal */
@@ -70,7 +80,7 @@
 
         .modal-header h3 {
             margin-top: 0;
-            color: #007bff;
+            color: #0056b3;
         }
 
         .modal-body {
@@ -141,9 +151,18 @@
 
         .customoverlay {position:relative;left:6px;bottom:75px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
         .customoverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
-        .customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #007bff;background: #007bff url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+        .customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #0056b3;background: #0056b3 url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
         .customoverlay .title {display:block;text-align:center;background:#fff;margin:0;padding:10px 15px;font-size:14px;font-weight:bold;}
         .customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+
+        /* lounge */
+        .page-link {color:#0056b3;}
+
+        /* event */
+        .event-banner {
+            cursor: pointer;
+            box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -227,11 +246,12 @@
             </div>
 
             <div class="header top-border">
-                    <li><a href="/">LOGO</a></li>
-                    <li><a href="#menu1">Menu 1</a></li>
-                    <li><a href="#menu2">Menu 2</a></li>
-                    <li><a href="#menu3">Menu 3</a></li>
-                    <li><a href="#menu4">Menu 4</a></li>
+                    <li><a href="/">KKOKKKOK</a></li>
+                    <li><a href="/list/location">지역별 보기</a></li>
+                    {{--<li><a href="/list/rank">랭킹별 보기</a></li>--}}
+                    <li><a href="/review">이용후기</a></li>
+                    <li><a href="/lounge">게시판</a></li>
+                    <li><a href="/event">이벤트</a></li>
             </div>
         </header>
 

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('_layouts.master')
 
 @section('style')
 @endsection
@@ -24,9 +24,21 @@
             </div>
             <div class="box">
                 <div class='banner-title banner-title-big'>NEW</div>
-                <img src="{{ asset('images/banner/banner1.png') }}" />
+                <div class='banner-box box'>
+                    <img src="{{ asset('images/banner/banner1.png') }}" />
+                    <div class="" style="padding:10px;">
+                        <h4><strong>서울 서울타이</strong></h4>
+                        <span>서울 서울구 서울동 11-11 서울빌딩 1층</span>
+                    </div>
+                </div>
             </div>
             <div class="clear"></div>
+        </div>
+
+        <div class="divide"></div>
+
+        <div class="">
+
         </div>
 
         <div class="divide"></div>
@@ -35,16 +47,28 @@
             <div class='banner-title'>BEST</div>
 
             <div class="list">
-                <?php for($i = 0; $i < 10; $i++) : ?>
+                <?php for($i = 0; $i < 3; $i++) : ?>
                     <div class="banner-box box">
                         <img src="{{ asset('images/banner/banner1.png') }}" />
                         <div class="">
                             <strong>서울 서울타이</strong><br />
                             <span>서울 서울구 서울동 11-11 서울빌딩 1층</span>
                         </div>
-                        <div class="">10,000</div>
+                        <div class="">10,000 ~</div>
                     </div>
                 <?php endfor; ?>
+                <?php foreach ($stores as $store) : ?>
+                <tr>
+                    <div class="banner-box box">
+                        <img src="uploads/store/{{ $store->back_image }}" />
+                        <div class="">
+                            <strong>{{ $store->name }}</strong><br />
+                            <span>{{ $store->addr }}</span>
+                        </div>
+                        <div class="">{{ number_format($store->price) }} ~</div>
+                    </div>
+                </tr>
+                <?php endforeach; ?>
             </div>
             <div class="clear"></div>
         </div>
