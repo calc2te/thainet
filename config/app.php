@@ -178,6 +178,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
+
     ],
 
     /*
@@ -228,6 +230,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Image' => Intervention\Image\Facades\Image::class,
+
+        'Sentry' => Sentry\SentryLaravel\SentryFacade::class,
     ],
 
 ];
